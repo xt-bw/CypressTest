@@ -36,6 +36,12 @@ jobs:
         
       - name: Check Cypress version
         run: sudo npx cypress -v
+
+      - name: Reinstall Cypress
+        run: cypress install
+        
+      - name: Check Cypress version
+        run: sudo npx cypress -v
         
       # - name: Cypress verify
       #   run: sudo npx cypress verify
