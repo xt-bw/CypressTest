@@ -21,12 +21,16 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Install prerequisite
+        run: apt-get install libgtk2.0-0t64 libgtk-3-0t64 libgbm-dev libnotify-dev libnss3 libxss1 libasound2t64 libxtst6 xauth xvfb
         
       - name: Init npm
         run: npm init -y
 
       - name: Install Cypress
-        run: npm install cypress --save-dev
+        run: npm install cypress
+        # run: npm install cypress --save-dev
 
       - name: Check Cypress version
         run: sudo npx cypress -v
