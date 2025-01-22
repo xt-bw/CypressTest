@@ -1,7 +1,7 @@
 name: Cypress Tests with Dependency and Artifact Caching
 
 on: push
-
+ 
 jobs:
   install:
     runs-on: ubuntu-24.04
