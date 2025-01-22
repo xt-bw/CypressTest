@@ -14,6 +14,9 @@ jobs:
         # with:
         #   node-version: 20
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Cypress install
         uses: cypress-io/github-action@v6
         with:
