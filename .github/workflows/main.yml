@@ -28,6 +28,13 @@ jobs:
           # start: npm start
           browser: chrome
 
+      - name: Save build folder
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          if-no-files-found: error
+          path: build
+
 
 # name: Cypress Tests with Dependency and Artifact Caching
 
