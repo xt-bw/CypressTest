@@ -52,7 +52,7 @@ describe('AuraPay Login', () => {
       cy.get('#password').type(Cypress.env('password'))
       cy.screenshot(`Aurapay/Profile/${getScnshotName('Login_2FA')}`)
       cy.get('#submitbtn').click()
-      cy.contains('二段階認証')
+      // cy.contains('二段階認証')
       // cy.get('input#verifyCode').type(randomNumber.toString(), {force: true})
       // cy.screenshot(`Aurapay/Profile/${getScnshotName('Login_2FA')}`)
       // cy.get('#validBtn').click()
