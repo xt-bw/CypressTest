@@ -19,29 +19,50 @@ jobs:
         with:
           node-version: 20
 
+      # Step 3: Install dependencies
       - name: Install dependencies
-        run: npm install
-
-      - name: Install prerequisite
-        run: sudo apt-get install libgtk2.0-0t64 libgtk-3-0t64 libgbm-dev libnotify-dev libnss3 libxss1 libasound2t64 libxtst6 xauth xvfb
-        
-      - name: Init npm
-        run: npm init -y
-
+        run: npm ci
+  
+      # Step 4: Install Cypress explicitly
       - name: Install Cypress
-        run: npm install cypress
-        # run: npm install cypress --save-dev  
-      - name: Make Cypress executable
-        run: chmod +x ./node_modules/.bin/cypress
-        
-      - name: Check Cypress version
-        run: sudo npx cypress -v
+        run: npx cypress install
+  
+      # Step 5: Clear Cypress cache (optional)
+      - name: Clear Cypress cache
+        run: npx cypress cache clear
 
-      - name: Reinstall Cypress
-        run: sudo npx cypress install
+      # - name: Install dependencies
+      #   run: npm install
+
+      # # # Step 3: Install dependencies
+      # # - name: Install dependencies
+      # #   run: npm ci
+  
+      # # # Step 4: Clear Cypress cache
+      # # - name: Clear Cypress cache
+      # #   run: npx cypress cache clear
+
+      # - name: Install prerequisite
+      #   run: sudo apt-get install libgtk2.0-0t64 libgtk-3-0t64 libgbm-dev libnotify-dev libnss3 libxss1 libasound2t64 libxtst6 xauth xvfb
         
-      - name: Check Cypress version
-        run: sudo npx cypress -v
+      # - name: Init npm
+      #   run: npm init -y
+
+      # - name: Install Cypress
+      #   run: npm install cypress
+      #   # run: npm install cypress --save-dev  
+        
+      # - name: Make Cypress executable
+      #   run: chmod +x ./node_modules/.bin/cypress
+        
+      # - name: Check Cypress version
+      #   run: sudo npx cypress -v
+
+      # - name: Reinstall Cypress
+      #   run: sudo npx cypress install
+        
+      # - name: Check Cypress version
+      #   run: sudo npx cypress -v
         
       # - name: Cypress verify
       #   run: sudo npx cypress verify
