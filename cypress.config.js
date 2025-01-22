@@ -29,7 +29,7 @@ module.exports = defineConfig({
         }
       })
     },
-    baseUrl: 'https://aurapay-front.minxpay.com/ws3',
+    baseUrl: 'https://devmy.aurapay.com',
     env: {
       email: 'atXT2408271531@outlook.com', // hv address // atXT2406206516@hotmail.com',
       password: 'Asdf@123',
