@@ -30,7 +30,7 @@ jobs:
 
       - name: Install Cypress
         run: npm install cypress
-        # run: npm install cypress --save-dev
+        # run: npm install cypress --save-dev  
       - name: Make Cypress executable
         run: chmod +x ./node_modules/.bin/cypress
         
