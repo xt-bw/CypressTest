@@ -27,13 +27,21 @@ jobs:
         with:
           # start: npm start
           browser: chrome
+          record: true
+          key: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: Save build folder
         uses: actions/upload-artifact@v4
         with:
-          name: build
-          if-no-files-found: error
-          path: build
+          name: cypress-artifacts
+          path: |
+            cypress/videos
+            cypress/screenshots
+            cypress/logs
+        # with:
+        #   name: build
+        #   if-no-files-found: error
+        #   path: build
 
 
 # name: Cypress Tests with Dependency and Artifact Caching
