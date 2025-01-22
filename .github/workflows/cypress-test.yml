@@ -47,4 +47,6 @@ jobs:
       #   run: sudo npx cypress verify
 
       - name: Run Cypress tests
-        run: sudo npx cypress run
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+        run: sudo npx cypress run --record
