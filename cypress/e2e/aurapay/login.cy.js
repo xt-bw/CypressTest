@@ -105,7 +105,7 @@ describe('AuraPay Login', () => {
 
   context('Iphone X - 375 x 812', () => {
     beforeEach(() => {
-      cy.viewport('iphone-x') 
+      cy.viewport('iphone-x')
       cy.visit('/')
       cy.contains('AuraPay ログイン')
       cy.screenshot(`Aurapay/Profile/${getScnshotName('Login')}`)
