@@ -2,8 +2,6 @@ const { defineConfig } = require("cypress");
 const fs = require('fs')
 
 module.exports = defineConfig({
-  projectId: "hvpuc9", // CYPRESS_RECORD_KEY: 83d7769c-2b2b-492d-a532-5bee8b0e6202
-  // projectId: "jjvvqd",
   retries: 2, // total 3 attempts // all modes
   // retries: {
   //   // Configure retry attempts for `cypress run`
@@ -29,7 +27,7 @@ module.exports = defineConfig({
         }
       })
     },
-    baseUrl: 'https://devmy.aurapay.com',
+    baseUrl: 'https://aurapay-front.minxpay.com/ws3',
     env: {
       email: 'atXT2408271531@outlook.com', // hv address // atXT2406206516@hotmail.com',
       password: 'Asdf@123',
@@ -46,12 +44,3 @@ module.exports = defineConfig({
   viewportWidth: 1280, //1000,
   viewportHeight: 720, //600,
 });
-
-
-// https://www.cypress.io/cloud#test_analytics
-// https://www.cypress.io/cloud#cypress_ui_coverage
-// https://www.cypress.io/cloud#cypress_accessibility
-
-
-// npx cypress run --record --key 83d7769c-2b2b-492d-a532-5bee8b0e6202
-// npx cypress open
