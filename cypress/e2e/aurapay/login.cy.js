@@ -96,6 +96,7 @@ describe('AuraPay Login', () => {
       cy.get('.nav-item.nav-logout').click()
       cy.contains('AuraPay ログイン')
     })
+    
 
 
 
