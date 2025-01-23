@@ -30,14 +30,13 @@ jobs:
           record: true
           key: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-      - name: Save build folder
-        uses: actions/upload-artifact@v4
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.0
         with:
           name: cypress-artifacts
           path: |
             cypress/videos
             cypress/screenshots
-            cypress/logs
         # with:
         #   name: build
         #   if-no-files-found: error
