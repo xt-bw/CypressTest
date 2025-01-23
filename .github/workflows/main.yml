@@ -2,6 +2,16 @@ name: Cypress Tests with Dependency and Artifact Caching
 
 on: push
 
+env:
+  # Set up the Cypress Cloud project ID and record key as environment variables
+  # If the Actions secret EXAMPLE_PROJECT_ID is not defined then
+  # the projectId is taken from cypress.json (v9) or cypress.config.js (v10 and later).
+  # If the Actions secret EXAMPLE_RECORDING_KEY is not defined then recording jobs are skipped.
+  # CYPRESS_PROJECT_ID: ${{ secrets.EXAMPLE_PROJECT_ID }}
+  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+  # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
 jobs:
   install:
     runs-on: ubuntu-24.04
@@ -26,9 +36,19 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           # start: npm start
-          browser: chrome
+          browser: chrome #firefox / edge / electron=default
           record: true
-          key: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # spec: cypress/e2e/spec1.cy.js
+          # spec: |
+          #   cypress/e2e/spec-a.cy.js
+          #   cypress/**/*-b.cy.js
+        env:
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # pass the Cypress Cloud record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass the project ID from the secrets through environment variable
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.6.0
@@ -37,6 +57,7 @@ jobs:
           path: |
             cypress/videos
             cypress/screenshots
+          if-no-files-found: ignore 
         # with:
         #   name: build
         #   if-no-files-found: error
